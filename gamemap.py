@@ -4,6 +4,7 @@ import renderer
 import camera
 import random
 from entity import Entity
+import gametime
 
 NO_COLLISIONS_LAYER: str = "NoCollisions"
 COLLISIONS_LAYER: str = "Collisions"
@@ -68,8 +69,8 @@ class GameMap:
                 tile_rect = (final_tile_x, final_tile_y, TILE_WIDTH, TILE_HEIGHT)
 
                 rect: pygame.Rect = entity.get_rect()
-                x_rect: pygame.Rect = pygame.Rect(rect.x + entity.mAcceleration.x * entity.mSpeed, rect.y, rect.w, rect.h)
-                y_rect: pygame.Rect = pygame.Rect(rect.x, rect.y + entity.mAcceleration.y * entity.mSpeed, rect.w, rect.h)
+                x_rect: pygame.Rect = pygame.Rect(rect.x + entity.mAcceleration.x * entity.mSpeed * gametime.DELTA_TIME, rect.y, rect.w, rect.h)
+                y_rect: pygame.Rect = pygame.Rect(rect.x, rect.y + entity.mAcceleration.y * entity.mSpeed * gametime.DELTA_TIME, rect.w, rect.h)
 
                 has_had_collision_with_tile: bool = False
 

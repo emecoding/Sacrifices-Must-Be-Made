@@ -30,7 +30,7 @@ LOW_HEALTH: float = 3
 HIGH_HEALTH: float = 5
 
 # Enemy knock backs
-LITTLE_KNOCK_BACK: float = 3
+LITTLE_KNOCK_BACK: float = 2
 NORMAL_KNOCK_BACK: float = LITTLE_KNOCK_BACK*2
 HIGH_KNOCK_BACK: float = LITTLE_KNOCK_BACK*3
 
@@ -83,7 +83,7 @@ class Enemy(Entity):
         self.__mKnockBack: float = self.__knock_back()
         self.__mIsTakingKnockBack: bool = False
         self.__mMaxScaleMultiplier: float = 2
-        self.__mCurrentScaleMultiplier: float = 50
+        self.__mCurrentScaleMultiplier: float = 75
 
         self.__mHealthBar: HealthBar = HealthBar(self.__mMaxHealth)
 

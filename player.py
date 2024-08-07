@@ -241,4 +241,4 @@ class Player(Entity):
         renderer.RENDERER.draw_sprite(self.__mAnimator.get_current_frame(), [self.mRect.x - self.mSize[0]/2 + self.mCollisionSize[0]/2, self.mRect.y - self.mSize[1]/2 + self.mCollisionSize[1]/2], self.mSize)
         self.__render_hearts()
         #renderer.RENDERER.draw_rect(self.__attack_hit_box(), (255, 0, 0), size=1)
-        super()._render_rect()
+        #super()._render_rect()
