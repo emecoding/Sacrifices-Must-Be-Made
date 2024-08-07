@@ -1,0 +1,85 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "../maps/Level1.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "../maps/Buildings.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "../maps/Decorative.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "../maps/Level1.tmx": {
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 723.5,
+                "y": 495.5
+            }
+        },
+        "../maps/MainTileset.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "Level1.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 10,
+                "y": 395.33333333333337
+            }
+        },
+        "MainTileset.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "sandboxmap.json": {
+            "scale": 1.169873046875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 0.42739680287161264,
+                "y": 0.42739680287161264
+            }
+        },
+        "sandboxmap.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 150.5,
+                "y": 529.5
+            }
+        }
+    },
+    "last.imagePath": "/home/eme/PycharmProjects/GameJameAug0104/resources/sprites/map",
+    "openFiles": [
+        "../maps/MainTileset.tsx",
+        "../maps/Level1.tmx"
+    ],
+    "project": "GameJameMap.tiled-project",
+    "recentFiles": [
+        "../maps/MainTileset.tsx",
+        "../maps/Level1.tmx",
+        "sandboxmap.tmx",
+        "../maps/Buildings.tsx",
+        "../maps/Decorative.tsx",
+        "Level1.tmx",
+        "MainTileset.tsx",
+        "sandboxmap.json"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
