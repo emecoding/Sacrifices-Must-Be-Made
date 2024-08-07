@@ -1,5 +1,6 @@
 import pygame
 
+import gametime
 import renderer
 
 class Entity:
@@ -27,6 +28,6 @@ class Entity:
     def on_collision_with_tile(self): pass
 
     def apply_acceleration(self):
-        self.mRect.x += self.mAcceleration.x * self.mSpeed
-        self.mRect.y += self.mAcceleration.y * self.mSpeed
+        self.mRect.x += self.mAcceleration.x * self.mSpeed * gametime.DELTA_TIME
+        self.mRect.y += self.mAcceleration.y * self.mSpeed * gametime.DELTA_TIME
 

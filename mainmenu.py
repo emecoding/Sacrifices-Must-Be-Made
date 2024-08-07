@@ -37,7 +37,7 @@ class MainMenu(Scene):
     def __set_up_GUI(self):
         self.__mButtons.append(Button("New Game", lambda: scenemanager.SCENE_MANAGER.set_current_scene_to_first_game_level(), [self.__button_x("New Game"), self.__mButtonStartY]))
         self.__mButtons.append(Button("Continue", lambda: scenemanager.SCENE_MANAGER.load_scene_from_save(savemanager.SAVE_MANAGER.last_save()), [self.__button_x("Continue"), self.__mButtonStartY+self.__mButtonOffsetY]))
-        self.__mButtons.append(Button("Settings", lambda: print("Settings"), [self.__button_x("Settings"), self.__mButtonStartY+self.__mButtonOffsetY*2]))
+        #self.__mButtons.append(Button("Settings", lambda: print("Settings"), [self.__button_x("Settings"), self.__mButtonStartY+self.__mButtonOffsetY*2]))
         self.__mButtons.append(Button("Exit", lambda: window.WINDOW.set_window_should_close(True), [self.__button_x("Exit"), self.__mButtonStartY+self.__mButtonOffsetY*3]))
 
     def __button_x(self, text: str):

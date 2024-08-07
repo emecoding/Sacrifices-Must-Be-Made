@@ -12,6 +12,7 @@ import time
 from enemy import *
 from mainmenu import MainMenu
 from winscene import WinScene
+import gametime
 
 GAME_RUNNING: bool = True
 TARGET_FPS: int = 60
@@ -67,6 +68,9 @@ def main():
 
 
     while GAME_RUNNING:
+        gametime.DELTA_TIME = clock.tick(TARGET_FPS)/1000
+
+
         GAME_INPUT.update_game_input()
 
         window.WINDOW.fill()
@@ -82,7 +86,7 @@ def main():
 
         GAME_RUNNING = not window.WINDOW.should_close()
 
-        clock.tick(TARGET_FPS)
+
 
     save_and_exit()
 

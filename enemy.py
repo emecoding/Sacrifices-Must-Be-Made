@@ -1,5 +1,6 @@
 import random
 
+import gametime
 from entity import Entity
 from animator import Animator
 from spritesheetloader import load_sprite_sheet, get_sprites_from_index_A_to_index_B, load_image
@@ -21,17 +22,17 @@ FOX_ENEMY: int = 4
 RACCOON_ENEMY: int = 5
 
 # Enemy speeds
-FAST_SPEED: float = 1.5
-SLOW_SPEED: float = 1
+FAST_SPEED: float = 75
+SLOW_SPEED: float = 50
 
 # Enemy healths
 LOW_HEALTH: float = 3
 HIGH_HEALTH: float = 5
 
 # Enemy knock backs
-NORMAL_KNOCK_BACK: float = 2
-LITTLE_KNOCK_BACK: float = 1
-HIGH_KNOCK_BACK: float = 3
+LITTLE_KNOCK_BACK: float = 3
+NORMAL_KNOCK_BACK: float = LITTLE_KNOCK_BACK*2
+HIGH_KNOCK_BACK: float = LITTLE_KNOCK_BACK*3
 
 # Enemy damages
 LOW_DAMAGE: int = 1
@@ -60,11 +61,11 @@ class Enemy(Entity):
 
         self.mTag = "ENEMY"
         self.mSpeed = self.__speed()
-        self.__mDeathSpeed: float = 10.0
+        self.__mDeathSpeed: float = 300
 
         self.mCollisionSize = [32, 35]
 
-        self.__mAnimator: Animator = Animator(1, 7)
+        self.__mAnimator: Animator = Animator(100, 7)
         self.__mAnimationToSet: str = "SPAWNING"
 
         self.__mSpawnIndicationAnimation: list = self.__spawn_indication_animation()
@@ -82,7 +83,7 @@ class Enemy(Entity):
         self.__mKnockBack: float = self.__knock_back()
         self.__mIsTakingKnockBack: bool = False
         self.__mMaxScaleMultiplier: float = 2
-        self.__mCurrentScaleMultiplier: float = 1.5
+        self.__mCurrentScaleMultiplier: float = 50
 
         self.__mHealthBar: HealthBar = HealthBar(self.__mMaxHealth)
 
@@ -113,7 +114,7 @@ class Enemy(Entity):
 
         self.__mAnimator.add_animation("SPAWNING", self.__mSpawnIndicationAnimation, set_as_current_animation=True)
 
-        self.__mAnimator.set_frame_rate_for_one_animation(4)
+        self.__mAnimator.set_frame_rate_for_one_animation(400)
 
     def __knock_back(self) -> float:
         if self.__mEnemyType == BLUE_BIRD_ENEMY: return NORMAL_KNOCK_BACK
@@ -226,11 +227,11 @@ class Enemy(Entity):
         if not self.__mIsTakingKnockBack:
             return
 
-        self.mSize[0] += self.__mCurrentScaleMultiplier
-        self.mSize[1] += self.__mCurrentScaleMultiplier
+        self.mSize[0] += self.__mCurrentScaleMultiplier * gametime.DELTA_TIME
+        self.mSize[1] += self.__mCurrentScaleMultiplier * gametime.DELTA_TIME
 
-        self.mCollisionSize[0] += self.__mCurrentScaleMultiplier
-        self.mCollisionSize[1] += self.__mCurrentScaleMultiplier
+        self.mCollisionSize[0] += self.__mCurrentScaleMultiplier * gametime.DELTA_TIME
+        self.mCollisionSize[1] += self.__mCurrentScaleMultiplier * gametime.DELTA_TIME
 
         if self.mSize[0] >= self.__mOriginalSize[0]*self.__mMaxScaleMultiplier:
             self.__mCurrentScaleMultiplier *= -1

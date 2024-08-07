@@ -1,3 +1,6 @@
+import gametime
+
+
 class Animator:
     def __init__(self, frame_rate: float, frame_time: int):
         self.__mDefaultFrameRate: float = frame_rate
@@ -34,7 +37,7 @@ class Animator:
         if not self.__mPlaying:
             return
 
-        self.__mCurrentFrameTime += self.__mCurrentFrameRate
+        self.__mCurrentFrameTime += self.__mCurrentFrameRate * gametime.DELTA_TIME
         if self.__mCurrentFrameTime >= self.__mFrameTime:
             self.__mCurrentFrameTime = 0
             self.__mCurrentFrameIndex += 1

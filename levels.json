@@ -1,17 +1,17 @@
 {
     "LastSave": {
-        "level": "Level 1"
+        "level": "Level 0"
     },
     "Level 0": {
         "hearts_required_to_pass": 1,
         "enemies_to_spawn": 1,
-        "enemy_spawn_rate": 10,
+        "enemy_spawn_rate": 1,
         "map_file": "sandboxmap.tmx"
     },
     "Level 1": {
         "hearts_required_to_pass": 3,
         "enemies_to_spawn": 7,
-        "enemy_spawn_rate": 100,
+        "enemy_spawn_rate": 2,
         "map_file": "Level1.tmx"
     }
 }

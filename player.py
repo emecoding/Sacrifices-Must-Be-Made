@@ -1,5 +1,6 @@
 import pygame
 
+import gametime
 from entity import Entity
 from gameinput import *
 from spritesheetloader import load_sprite_sheet
@@ -28,7 +29,7 @@ class Player(Entity):
 
         #scenemanager.SCENE_MANAGER.get_current_scene().game_map().add_entity_to_check_collisions_for(self)
 
-        self.mSpeed = 3
+        self.mSpeed = 150
         self.mTag = "PLAYER"
         self.mCollisionSize = [24, 48]
 
@@ -45,7 +46,7 @@ class Player(Entity):
         self.__mAttackHitBoxSize: float = 20
 
         self.__mDamage: float = 1
-        self.__mDamageTimer: float = 40
+        self.__mDamageTimer: float = 1
         self.__mCurrentDamageTime: float = 0.0
         self.__mTakingDamage: bool = False
         self.__mDied: bool = False
@@ -59,7 +60,7 @@ class Player(Entity):
 
         self.__mGivenUp: bool = False
 
-        self.__mAnimator: Animator = Animator(1, 7)
+        self.__mAnimator: Animator = Animator(100, 7)
         self.__mAnimationToSet: str = ""
         self.__set_up_animations()
 
@@ -132,7 +133,7 @@ class Player(Entity):
             self.mAcceleration.x = 0
             self.mAcceleration.y = 0
 
-            self.__mAnimator.set_frame_rate_for_one_animation(0.8)
+            self.__mAnimator.set_frame_rate_for_one_animation(80)
 
             self.__attack()
 
@@ -193,7 +194,7 @@ class Player(Entity):
         if not self.__mTakingDamage:
             return
 
-        self.__mCurrentDamageTime += 1
+        self.__mCurrentDamageTime += 1 * gametime.DELTA_TIME
         if self.__mCurrentDamageTime >= self.__mDamageTimer:
             self.__mTakingDamage = False
             self.__mCurrentDamageTime = 0.0
@@ -240,4 +241,4 @@ class Player(Entity):
         renderer.RENDERER.draw_sprite(self.__mAnimator.get_current_frame(), [self.mRect.x - self.mSize[0]/2 + self.mCollisionSize[0]/2, self.mRect.y - self.mSize[1]/2 + self.mCollisionSize[1]/2], self.mSize)
         self.__render_hearts()
         #renderer.RENDERER.draw_rect(self.__attack_hit_box(), (255, 0, 0), size=1)
-        #super()._render_rect()
+        super()._render_rect()

@@ -1,5 +1,6 @@
 import json
 
+import gametime
 from gamemap import GameMap
 from maploader import load_map
 from enemy import Enemy, random_enemy_type
@@ -49,7 +50,7 @@ class Level:
         if self.__mEnemiesSpawned >= self.__mJSONData["enemies_to_spawn"]:
             return
 
-        self.__mEnemySpawnTime += 1
+        self.__mEnemySpawnTime += 1 * gametime.DELTA_TIME
         if self.__mEnemySpawnTime >= self.__mJSONData["enemy_spawn_rate"]:
             self.__mEnemySpawnTime = 0
             self.__spawn_enemy()
